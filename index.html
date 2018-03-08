@@ -294,7 +294,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2 id="mac-terminal-基本命令失效的修复"><a href="#mac-terminal-基本命令失效的修复" class="headerlink" title="mac terminal 基本命令失效的修复"></a>mac terminal 基本命令失效的修复</h2><p>手贱把系统更新到了macOS High sierra。今天准备装PyTorch的时候，在terminal输conda install指令，结果出来“-bash: conda :command not found”。想想自己明明安装了anaconda，路径应该也在环境变量里面。后来试着敲敲ls，“-bash: ls :command not found”，心都碎了，连基本指令都用不了。试试cd，能用。。。。</p>
+              <h2 id="mac-terminal-基本命令失效的修复"><a href="#mac-terminal-基本命令失效的修复" class="headerlink" title="mac terminal 基本命令失效的修复"></a>mac terminal 基本命令失效的修复</h2><p>手贱把系统更新到了macOS High sierra。今天准备装PyTorch的时候，在terminal输conda install指令，结果出来“-bash: conda :command not found”。想了想明明安装了anaconda，路径应该也在环境变量里面，为什么会找不到command呢。后来试着敲敲ls，“-bash: ls :command not found”，连基本指令都用不了。试试cd，能用。。。。<br>这个问题的答案可以通过在terminal 输入’’’type cd’’’和’’’type ls’’’得出，cd is a shell builtin表示cd是bash的内建命令，而ls<br>is hashed (/bin/ls)表示ls是外部命令，需要手动导入到环境变量中。</p>
 <p>下面记录修复：</p>
           
       
