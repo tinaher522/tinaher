@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://github.com/tinaher522/tinaher522.github.io/2018/02/19/language-modeling-basics/index.html">
 <meta property="og:site_name" content="istar">
 <meta property="og:description" content="语言模型在nlp中是用来预测词汇或句子的，是实现自然语言处理智能化不可缺少的一部分。想像一下，we were given a corpus, and then we need to estimate the parameters of a language model. But 科普一个小知识，Originally, 语言模型是develop for语音识别，直到现在还是play a centra">
-<meta property="og:updated_time" content="2018-03-09T23:09:14.948Z">
+<meta property="og:updated_time" content="2018-03-09T23:23:36.570Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="language modeling basics">
 <meta name="twitter:description" content="语言模型在nlp中是用来预测词汇或句子的，是实现自然语言处理智能化不可缺少的一部分。想像一下，we were given a corpus, and then we need to estimate the parameters of a language model. But 科普一个小知识，Originally, 语言模型是develop for语音识别，直到现在还是play a centra">
@@ -269,7 +269,13 @@ P(\mathbf{x}) &amp;= P(x_1,...,x_N) \\
 \end{align}$$</span><!-- Has MathJax --></p>
 <p>\[P(\mathbf{x}) &amp;= P(x<em>1,…,x_N)\]<br>\[P(\mathbf{x}) &amp;= P(x_1,…,x_N) \<br>&amp;= P(x_1)P(x_2…x_N|x_1)\<br>&amp;= P(x_1)P(x_2|x_1) … P(x_N|x_1,…,x</em>{N-1})\</p>
 <p>&amp;= \prod<em>{n=1}^N P(x_n|x_1,… x</em>{n-1}) \quad \text{(chain rule)}\\]</p>
-<script type="math/tex; mode=display">\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}</script><script type="math/tex; mode=display">P(\mathbf{x}) &= P(x_1,...,x_N)</script>
+<script type="math/tex; mode=display">\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}</script><script type="math/tex; mode=display">P(\mathbf{x}) &= P(x_1,...,x_N)</script><script type="math/tex; mode=display">
+\\begin{aligned}
+x\_{f} = & x\_0+k(x-x\_0) \\\\
+y\_{f} = & y\_0+k(y-y\_0) \\\\
+s\_{f} = & k
+\\end{aligned}</script><p>$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$</p>
+
       
       
         <div class="page-reward">
@@ -327,7 +333,7 @@ P(\mathbf{x}) &amp;= P(x_1,...,x_N) \\
         <p><span>本文标题:</span><a href="/tinaher522.github.io/2018/02/19/language-modeling-basics/">language modeling basics</a></p>
         <p><span>文章作者:</span><a href="/tinaher522.github.io/" title="访问 xinghui he 的个人博客">xinghui he</a></p>
         <p><span>发布时间:</span>2018年02月19日 - 17时05分</p>
-        <p><span>最后更新:</span>2018年03月09日 - 23时09分</p>
+        <p><span>最后更新:</span>2018年03月09日 - 23时23分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/tinaher522.github.io/2018/02/19/language-modeling-basics/" title="language modeling basics">https://github.com/tinaher522/tinaher522.github.io/2018/02/19/language-modeling-basics/</a>
             <span class="copy-path" data-clipboard-text="原文: https://github.com/tinaher522/tinaher522.github.io/2018/02/19/language-modeling-basics/　　作者: xinghui he" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
