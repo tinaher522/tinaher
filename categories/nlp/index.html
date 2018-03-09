@@ -3,11 +3,11 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>istar</title>
+  <title>Category: nlp | istar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="istar">
-<meta property="og:url" content="https://github.com/tinaher522/tinaher522.github.io/index.html">
+<meta property="og:url" content="https://github.com/tinaher522/tinaher522.github.io/categories/nlp/index.html">
 <meta property="og:site_name" content="istar">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="istar">
@@ -24,9 +24,6 @@
   <link rel="stylesheet" href="/tinaher522.github.io/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/tinaher522.github.io/apple-touch-icon.png">
   
-    
-    
-  
   
       <link rel="stylesheet" href="/tinaher522.github.io/fancybox/jquery.fancybox.css">
   
@@ -38,11 +35,11 @@
           rootUrl: '/tinaher522.github.io/',
           fancybox: true,
           animate: true,
-          isHome: true,
+          isHome: false,
           isPost: false,
           isArchive: false,
           isTag: false,
-          isCategory: false,
+          isCategory: true,
           open_in_new: true
       }
   </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -213,336 +210,56 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-逻辑回归和条件随机场" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/tinaher522.github.io/2018/03/06/逻辑回归和条件随机场/" class="article-date">
-      <time datetime="2018-03-06T17:37:40.000Z" itemprop="datePublished">2018-03-06</time>
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/tinaher522.github.io/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/tinaher522.github.io/2018/02/19/language-modeling-basics/" class="archive-article-date">
+      <time datetime="2018-02-19T17:05:06.000Z" itemprop="datePublished">02-19</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+        </div>
+         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/tinaher522.github.io/2018/03/06/逻辑回归和条件随机场/">逻辑回归和条件随机场</a>
+      <a class="archive-article-title" href="/tinaher522.github.io/2018/02/19/language-modeling-basics/">language modeling basics</a>
     </h1>
   
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        <div class="article-info info-on-archive">
           
-        
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-mac-terminal-command-don-t-work" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/" class="article-date">
-      <time datetime="2018-02-26T21:33:33.000Z" itemprop="datePublished">2018-02-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/">mac terminal command don&#39;t work</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="mac-terminal-基本命令失效的修复"><a href="#mac-terminal-基本命令失效的修复" class="headerlink" title="mac terminal 基本命令失效的修复"></a>mac terminal 基本命令失效的修复</h2><p>手贱把系统更新到了macOS High sierra。今天准备装PyTorch的时候，在terminal输conda install指令，结果出来“-bash: conda :command not found”。想了想明明安装了anaconda，路径应该也在环境变量里面，为什么会找不到command呢。后来试着敲敲ls，“-bash: ls :command not found”，连基本指令都用不了。试试cd，能用。。。。<br>这个问题的答案可以通过在terminal 输入’’’type cd’’’和’’’type ls’’’得出，cd is a shell builtin表示cd是bash的内建命令，而ls<br>is hashed (/bin/ls)表示ls是外部命令，需要手动导入到环境变量中。</p>
-<p>下面记录修复：</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/command/">command</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/macOS/">macOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/terminal/">terminal</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/#more">🌟starMore🌟 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-language-modeling-basics" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/tinaher522.github.io/2018/02/19/language-modeling-basics/" class="article-date">
-      <time datetime="2018-02-19T17:05:06.000Z" itemprop="datePublished">2018-02-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tinaher522.github.io/2018/02/19/language-modeling-basics/">language modeling basics</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>语言模型在nlp中是用来预测词汇或句子的，是实现自然语言处理智能化不可缺少的一部分。想像一下，we were given a corpus, and then we need to estimate the parameters of a language model. But 科普一个小知识，Originally, 语言模型是develop for语音识别，直到现在还是play a central role in speech recognition。</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/tinaher522.github.io/categories/nlp/">nlp</a>
     </div>
 
 
-      
+          
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/lm/">lm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/nlp/">nlp</a></li></ul>
     </div>
 
-      
-        <p class="article-more-link">
-          <a  href="/tinaher522.github.io/2018/02/19/language-modeling-basics/#more">🌟starMore🌟 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
-  
 </article>
-
-
-
-
-
-
-
-
-
   
-    <article id="post-nlpLab-python" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/tinaher522.github.io/2018/02/19/nlpLab-python/" class="article-date">
-      <time datetime="2018-02-19T11:28:39.000Z" itemprop="datePublished">2018-02-19</time>
-</a>
-    </div>
+    </div></section>
   
-  <div class="article-inner">
+
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tinaher522.github.io/2018/02/19/nlpLab-python/">nlpLab-python</a>
-    </h1>
-  
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="lab-requirement"><a href="#lab-requirement" class="headerlink" title="lab requirement"></a>lab requirement</h2><ul>
-<li><strong>numpy</strong> ：熟练 plot some graphs</li>
-<li><strong>spacy.io</strong> ：熟练这个库，可用作 part-of-speech tagging, syntactic parsing语法分析</li>
-<li><strong>pytorch</strong> ：熟练用于assignment</li>
-<li><strong>git</strong> ：使用版本控制系统</li>
-</ul>
-<h2 id="python-numpy-tutorial"><a href="#python-numpy-tutorial" class="headerlink" title="python numpy tutorial"></a>python numpy tutorial</h2><blockquote>
-<p><strong>python</strong>是一种动态的多范式编程语言，就是说既可以采用c语言的过程式思想，也可以使用java、c#的面向对象思想，Haskell的函数式思想或者范型思想来编程。简言之，有多种编程方法，目前来说，有面向过程，面向对象，泛型，函数式四种程序设计方法。    —— <a href="https://www.zhihu.com/question/20428688" target="_blank" rel="noopener">知乎</a></p>
-</blockquote>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/lab/">lab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/nlp/">nlp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/python/">python</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/tinaher522.github.io/2018/02/19/nlpLab-python/#more">🌟starMore🌟 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Natural-Language-Processing-Introduction" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/tinaher522.github.io/2018/02/08/Natural-Language-Processing-Introduction/" class="article-date">
-      <time datetime="2018-02-08T19:15:56.000Z" itemprop="datePublished">2018-02-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tinaher522.github.io/2018/02/08/Natural-Language-Processing-Introduction/">Natural Language Processing-Introduction</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="WHY-IS-NLP-CHALLENGING"><a href="#WHY-IS-NLP-CHALLENGING" class="headerlink" title="WHY IS NLP CHALLENGING ?"></a>WHY IS NLP CHALLENGING ?</h2><p> 1、自然语言跟程序语言不一样，他们不是被设计好的，而是逐步发展的语言。</p>
-<ul>
-<li><strong>新的词汇不断出现</strong></li>
-<li><strong>分析语言语法的 parsing rules 是很灵活的 （尤其不同语言之间）</strong></li>
-<li><strong>句子或词汇歧义是一定存在的</strong></li>
-</ul>
-<p>2、未知的一些通用表达。</p>
-<ul>
-<li><strong>通常在一些特定的应用里面，会涉及设计专有名词</strong></li>
-</ul>
-<p>3、全世界的知识都有必要被转述翻译。<br>4、太多的语言、方言。</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/Introduction/">Introduction</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/nlp/">nlp</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/tinaher522.github.io/2018/02/08/Natural-Language-Processing-Introduction/#more">🌟starMore🌟 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
     <div class="outer">
@@ -628,6 +345,17 @@ MathJax.Hub.Queue(function() {
         };
     })
 </script>
+
+    <button class="hide-labels">TAG 开关</button>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                $(".article-info").toggle(200);
+            });
+        });
+    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
