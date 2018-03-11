@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://github.com/tinaher522/tinaher522.github.io/2018/02/19/language-modeling-basics/index.html">
 <meta property="og:site_name" content="istar">
 <meta property="og:description" content="语言模型在nlp中是用来预测词汇或句子的，是实现自然语言处理智能化不可缺少的一部分。想像一下，we were given a corpus, and then we need to estimate the parameters of a language model. But 科普一个小知识，Originally, 预测语言模型参数的技术是develop for语音识别的，直到现在还是play">
-<meta property="og:updated_time" content="2018-03-11T14:06:44.144Z">
+<meta property="og:updated_time" content="2018-03-11T15:12:38.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="language modeling basics">
 <meta name="twitter:description" content="语言模型在nlp中是用来预测词汇或句子的，是实现自然语言处理智能化不可缺少的一部分。想像一下，we were given a corpus, and then we need to estimate the parameters of a language model. But 科普一个小知识，Originally, 预测语言模型参数的技术是develop for语音识别的，直到现在还是play">
@@ -251,53 +251,40 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>语言模型在nlp中是用来预测词汇或句子的，是实现自然语言处理智能化不可缺少的一部分。想像一下，we were given a corpus, and then we need to estimate the parameters of a language model. But 科普一个小知识，Originally, 预测语言模型参数的技术是develop for语音识别的，直到现在还是play a central role in speech recognition。nlp后面的像part of speech tagging, dependency parsing这样的问题，还是会用到语言模型。</p>
+        <blockquote>
+<p><strong>语言模型</strong>在nlp中是用来预测词汇或句子的，是实现自然语言处理智能化不可缺少的一部分。想像一下，we were given a corpus, and then we need to estimate the parameters of a language model. But 科普一个小知识，Originally, 预测语言模型参数的技术是develop for语音识别的，直到现在还是play a central role in speech recognition。nlp后面的像part of speech tagging, dependency parsing这样的问题，还是会用到语言模型。</p>
+</blockquote>
 <a id="more"></a>
 <p>首先语言模型是什么？p(S)就是一个语言模型，用来计算一个句子的概率的模型。而这个模型是我们提取了语料库中的各类特征，从而训练得到的模型。</p>
 <p>Assigning probabilities to sequences 在很多应用中都是很必要的，比如在speech recognition, handwriting recognition这样的应用里，我们要从noisy，ambiguous input 环境中去 identify words。举个例子，比如说在抢劫的电影场景里，劫匪写了一张纸条，“i have a gub”。如果用language processing system 去读它，很可能就会输出“I have a gun”。很显然后者才是更合理的句子，因为gub这个单词根本就不存在，而且在抢劫的场景，gun 比其他相似的单词，如gull更合理些。 概率分布下的语言模型让自然语言处理智能化，就像是一个knowledge-based的人去处理单词句子。</p>
 <p>不过以上都是个人的一些理解，不够说服力。那么怎么更具说服力地定义一下语言模型呢？这里引用一下Columbia University的Michael Collins教授在nlp课程里的course notes<a href="http://www.cs.columbia.edu/~mcollins/lm-spring2013.pdf" target="_blank" rel="noopener">1</a>.</p>
-<blockquote>
-<p><strong>如何定义语言模型？</strong></p>
-</blockquote>
-<pre><code>**1. 基于某一种语言，先定义一个 V，它是一个由语料库里所有单词组成的一个set.（每个单词仅出现一次）**
+<h2 id="如何定义语言模型？"><a href="#如何定义语言模型？" class="headerlink" title="如何定义语言模型？"></a>如何定义语言模型？</h2><pre><code> 1. 基于某一种语言，先定义一个 V，它是一个由语料库里所有单词组成的一个set.（每个单词仅出现一次）
 </code></pre><p> 假设说当我们给英语建一个语言模型的时候，这个 V 可能是这样：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">V = {the, dog, laughs, saw, barks, cat, . . .}</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-</div>
+<p>   V = {the, dog, laughs, saw, barks, cat, . . .}  </p>
 <p>   实际上 V 可能非常的大，可能有成千上万的单词，但是它被认为是一个有限的集合（finite set）。</p>
-<p> <strong>2. 然后是用V里的单词组成一个句子.</strong></p>
-<p>   A sentence in the language is a sequence of words, like</p>
+<pre><code> 2. 然后是用V里的单词组成一个句子.  
+</code></pre><p>   A sentence in the language is a sequence of words, like</p>
 <script type="math/tex; mode=display">x_1x_2 . . . x_n</script><p>   这里的n是≥1的整数，并且<script type="math/tex">x_1，x_2 ，. . . ，x_n-1</script>都属于集合V。但是<script type="math/tex">x_n</script>不属于集合V，它是一个特殊符号STOP，表示句子的结束。这时候，example sentences可能如下：</p>
-<pre><code>                   the dog barks STOP
-                   the cat laughs STOP
-                   the cat saw the dog STOP
-                   the STOP
-                   cat the dog the STOP
-                   cat cat cat STOP
-                   STOP
-                   . . .
-</code></pre><p>这里的所有句子都是由V里面的单词无序组成，我们把这些句子的集合定义为<script type="math/tex">V†</script>. 而这个集合和之前的集合V是完全不同，<script type="math/tex">V†</script>是一个无限集合，因为句子的长度是不一样的，并且句中单词是无序且可重复的。</p>
-<p><strong>3. 最后，正式定义语言模型：一个语言模型由两个重要因素组成，一个是有限的集合V，另一个是方程<script type="math/tex">p(x_1, x_2, . . . x_n)</script> </strong>.</p>
-<p>这里对于方程<script type="math/tex">p(x_1, x_2, . . . x_n)</script> **有两个限制条件：</p>
+<p> the dog barks STOP<br> the cat laughs STOP<br> the cat saw the dog STOP<br> the STOP<br> cat the dog the STOP<br> cat cat cat STOP<br> STOP<br> . . .</p>
+<p>这里的所有句子都是由V里面的单词无序组成，我们把这些句子的集合定义为<script type="math/tex">V†</script>. 而这个集合和之前的集合V是完全不同，<script type="math/tex">V†</script>是一个无限集合，因为句子的长度是不一样的，并且句中单词是无序且可重复的。</p>
+<pre><code> 3. 最后，正式定义语言模型：一个语言模型由两个重要因素组成，一个是有限的集合V，另一个是方程$$p(x_1, x_2, . . . x_n)$$.
+</code></pre><p>这里对于方程<script type="math/tex">p(x_1, x_2, . . . x_n)</script> **有两个限制条件：</p>
 <ul>
-<li><strong>对于任意属于集合<script type="math/tex">V†</script>的句子，<script type="math/tex">p(x_1, x_2, . . . x_n)≥ 0</script></strong><br>For any {<script type="math/tex">x_1 . . . x_n ∈ V†</script>}, <script type="math/tex">p(x_1, x_2, . . . x_n) ≥ 0</script>.</li>
+<li><p><strong>对于任意属于集合<script type="math/tex">V†</script>的句子，<script type="math/tex">p(x_1, x_2, . . . x_n)≥ 0</script></strong><br>For any {<script type="math/tex">x_1 . . . x_n ∈ V†</script>}, <script type="math/tex">p(x_1, x_2, . . . x_n) ≥ 0</script>.</p>
+</li>
+<li><p><strong>所有属于集合<script type="math/tex">V†</script>的句子，句子概率和=1</strong></p>
+</li>
 </ul>
-<ul>
-<li><strong>所有属于集合<script type="math/tex">V†</script>的句子，句子概率和=1$$</strong></li>
-</ul>
-<script type="math/tex; mode=display">\sum\limits_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}</script><blockquote>
+<script type="math/tex; mode=display">\sum\limits_{x_1 . . . x_n ∈ V†} p(x_1, x_2, . . . x_n)=1</script><p>Hence <script type="math/tex">p(x_1, x_2, . . . x_n)</script> is a probability distribution over the sentences in <script type="math/tex">V†</script>.</p>
+<h2 id="如何从训练语料库中学习一个语言模型？"><a href="#如何从训练语料库中学习一个语言模型？" class="headerlink" title="如何从训练语料库中学习一个语言模型？"></a>如何从训练语料库中学习一个语言模型？</h2><p>我们知道<script type="math/tex">p(x_1, x_2, . . . x_n)</script>就是一个语言模型，但是<script type="math/tex">p(x_1, x_2, . . . x_n)</script>=？</p>
+<p>有不同的方法来计算<script type="math/tex">p(x_1, x_2, . . . x_n)</script>，所以后面的“？”会因为计算方法不同而不同。也就是说同一个语料库，会因为训练的方法不同产生不同的解，从而得到不一样的语言模型。</p>
+<p>举例来说，有个非常烂的语言模型是：</p>
+<script type="math/tex; mode=display">p(x_1 . . . x_n)=\frac{c(x_1. . . x_n)}{N}</script><p>这里N表示训练语料库中句子的数量，而<script type="math/tex">c(x_1. . . x_n)</script>表示句子<script type="math/tex">x_1. . . x_n</script>出现的次数。因为<script type="math/tex">x_1. . . x_n</script>中的<script type="math/tex">x_i</script>是无序可重复的，所以很有可能句子<script type="math/tex">x_1. . . x_n</script>根本没有在训练集（这里的集合不是V也不是<script type="math/tex">V†</script>，是语料库中句子的集合）中出现过。因此在很多情况下<script type="math/tex">p(x_1, x_2, . . . x_n)</script>的结果都为0，这对构建语言模型去做预测词语或句子的应用没有什么意义。所以说这种方法，是很糟糕的方法。</p>
+<p>有什么好方法去构建语言模型吗？</p>
+<h3 id="Markov-Models"><a href="#Markov-Models" class="headerlink" title="Markov Models"></a>Markov Models</h3><p>Markov Models是概率论的核心思想。</p>
+<blockquote>
 <p>语言模型和马尔可夫模型，条件随机场等模型是什么关系呢？</p>
+<p>马尔可夫模型，条件随机场等模型都是构建语言模型的好方法。</p>
 </blockquote>
 <p>首先语言模型是什么？p(S)就是一个语言模型，用来计算一个句子概率的模型。由chain rule可知，<br><span>$$\begin{align}
 P(\mathbf{x}) &amp;= P(x_1,...,x_N) \\
@@ -363,7 +350,7 @@ P(\mathbf{x}) &amp;= P(x_1,...,x_N) \\
         <p><span>本文标题:</span><a href="/tinaher522.github.io/2018/02/19/language-modeling-basics/">language modeling basics</a></p>
         <p><span>文章作者:</span><a href="/tinaher522.github.io/" title="访问 xinghui he 的个人博客">xinghui he</a></p>
         <p><span>发布时间:</span>2018年02月19日 - 17时05分</p>
-        <p><span>最后更新:</span>2018年03月11日 - 14时06分</p>
+        <p><span>最后更新:</span>2018年03月11日 - 15时12分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/tinaher522.github.io/2018/02/19/language-modeling-basics/" title="language modeling basics">https://github.com/tinaher522/tinaher522.github.io/2018/02/19/language-modeling-basics/</a>
             <span class="copy-path" data-clipboard-text="原文: https://github.com/tinaher522/tinaher522.github.io/2018/02/19/language-modeling-basics/　　作者: xinghui he" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -401,7 +388,7 @@ P(\mathbf{x}) &amp;= P(x_1,...,x_N) \\
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何定义语言模型？"><span class="toc-number">1.</span> <span class="toc-text">如何定义语言模型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何从训练语料库中学习一个语言模型？"><span class="toc-number">2.</span> <span class="toc-text">如何从训练语料库中学习一个语言模型？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Markov-Models"><span class="toc-number">2.1.</span> <span class="toc-text">Markov Models</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
