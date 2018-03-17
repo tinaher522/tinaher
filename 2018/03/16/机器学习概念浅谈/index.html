@@ -3,15 +3,22 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>逻辑回归和条件随机场 | istar</title>
+  <title>机器学习概念浅谈 | istar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="逻辑回归和条件随机场">
-<meta property="og:url" content="https://github.com/tinaher522/tinaher522.github.io/2018/03/06/逻辑回归和条件随机场/index.html">
+  <meta name="description" content="浅谈机器学习中的一些基本概念的理解。 文字主要整理摘自 Morvan’s video，知乎：“深度学习”和“多层神经网络”的区别 图片来源：google image，Morvan’s video，台大深度学习课件持续更新中  机器学习分类监督学习(supervised learning)通过向计算机提供不同类型数据和这些数据所对应的值，即在给定标签的情况下，让计算机学习去分辨这些数据的过程，叫做">
+<meta name="keywords" content="ml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习概念浅谈">
+<meta property="og:url" content="https://github.com/tinaher522/tinaher522.github.io/2018/03/16/机器学习概念浅谈/index.html">
 <meta property="og:site_name" content="istar">
-<meta property="og:updated_time" content="2018-03-10T10:41:52.391Z">
+<meta property="og:description" content="浅谈机器学习中的一些基本概念的理解。 文字主要整理摘自 Morvan’s video，知乎：“深度学习”和“多层神经网络”的区别 图片来源：google image，Morvan’s video，台大深度学习课件持续更新中  机器学习分类监督学习(supervised learning)通过向计算机提供不同类型数据和这些数据所对应的值，即在给定标签的情况下，让计算机学习去分辨这些数据的过程，叫做">
+<meta property="og:image" content="http://www.tinaher.com/2018/03/16/机器学习概念浅谈/1.jpg">
+<meta property="og:image" content="http://www.tinaher.com/2018/03/16/机器学习概念浅谈/2.jpg">
+<meta property="og:updated_time" content="2018-03-17T18:29:40.171Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="逻辑回归和条件随机场">
+<meta name="twitter:title" content="机器学习概念浅谈">
+<meta name="twitter:description" content="浅谈机器学习中的一些基本概念的理解。 文字主要整理摘自 Morvan’s video，知乎：“深度学习”和“多层神经网络”的区别 图片来源：google image，Morvan’s video，台大深度学习课件持续更新中  机器学习分类监督学习(supervised learning)通过向计算机提供不同类型数据和这些数据所对应的值，即在给定标签的情况下，让计算机学习去分辨这些数据的过程，叫做">
+<meta name="twitter:image" content="http://www.tinaher.com/2018/03/16/机器学习概念浅谈/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="istar" type="application/atom+xml">
   
@@ -205,11 +212,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-逻辑回归和条件随机场" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-机器学习概念浅谈" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/tinaher522.github.io/2018/03/06/逻辑回归和条件随机场/" class="article-date">
-      <time datetime="2018-03-06T17:37:40.000Z" itemprop="datePublished">2018-03-06</time>
+      <a href="/tinaher522.github.io/2018/03/16/机器学习概念浅谈/" class="article-date">
+      <time datetime="2018-03-16T20:21:14.000Z" itemprop="datePublished">2018-03-16</time>
 </a>
     </div>
   
@@ -222,7 +229,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      逻辑回归和条件随机场
+      机器学习概念浅谈
     </h1>
   
 
@@ -236,6 +243,10 @@
 
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/ml/">ml</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -243,7 +254,32 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <blockquote>
+<p>浅谈机器学习中的一些基本概念的理解。</p>
+<p>文字主要整理摘自 <a href="https://www.youtube.com/playlist?list=PLXO45tsB95cIFm8Y8vMkNNPPXAtYXwKin" target="_blank" rel="noopener">Morvan’s video</a>，<br><a href="https://www.zhihu.com/question/26017374" target="_blank" rel="noopener">知乎：“深度学习”和“多层神经网络”的区别</a></p>
+<p>图片来源：google image，Morvan’s video，台大深度学习课件<br>持续更新中</p>
+</blockquote>
+<h1 id="机器学习分类"><a href="#机器学习分类" class="headerlink" title="机器学习分类"></a>机器学习分类</h1><h2 id="监督学习-supervised-learning"><a href="#监督学习-supervised-learning" class="headerlink" title="监督学习(supervised learning)"></a>监督学习(supervised learning)</h2><p>通过向计算机提供不同类型数据和这些数据所对应的值，即在给定标签的情况下，让计算机学习去分辨这些数据的过程，叫做监督性学习。</p>
+<h2 id="非监督学习（un-supervised-learning"><a href="#非监督学习（un-supervised-learning" class="headerlink" title="非监督学习（un-supervised learning)"></a>非监督学习（un-supervised learning)</h2><p>只向计算机提供数据，不给定标签信息，让计算机自己去观察各种数据之间的特性并发现背后的规律从而对数据判断和分类的过程，叫做非监督性学习。<br><a id="more"></a></p>
+<h2 id="半监督学习（semi-supervised-learning"><a href="#半监督学习（semi-supervised-learning" class="headerlink" title="半监督学习（semi-supervised learning)"></a>半监督学习（semi-supervised learning)</h2><p>综合了监督学习和非监督学习的特征，利用少量有标签的样本和大量没有标签的样本进行训练和分类的过程，叫做半监督学习。</p>
+<h2 id="强化学习-reinforcement-learning"><a href="#强化学习-reinforcement-learning" class="headerlink" title="强化学习(reinforcement learning)"></a>强化学习(reinforcement learning)</h2><p>把计算机置于完全陌生的环境，或给它一项从未接触过的任务，让它自己去尝试各种方法成功适应陌生环境或完成任务。开始阶段，它的表现可能不好，但它会像人类一样总结失败教训和成功经验，最后很好地表现。这样的过程，叫做强化学习。Google开发的AlphaGo就是应用了这一种学习方式。</p>
+<h2 id="遗传算法（genetic-algorithm）"><a href="#遗传算法（genetic-algorithm）" class="headerlink" title="遗传算法（genetic algorithm）"></a>遗传算法（genetic algorithm）</h2><p>和强化学习类似，遵循适者生存，不适者淘汰的规则。通过淘汰机制去选择最优的设计或模型的方法,叫做遗传算法。</p>
+<h1 id="神经网络（Neural-Networks）"><a href="#神经网络（Neural-Networks）" class="headerlink" title="神经网络（Neural Networks）"></a>神经网络（Neural Networks）</h1><h2 id="人工神经网络-VS-生物神经网络"><a href="#人工神经网络-VS-生物神经网络" class="headerlink" title="人工神经网络 VS 生物神经网络"></a>人工神经网络 VS 生物神经网络</h2><p><strong>生物神经网络</strong>：900亿的神经网络细胞组成我们人的神经网络系统，人之所以能够处理各种任务和复杂的问题，仅靠单个的神经元是办不到的。人在小时候也有很多不能做的复杂的事情，是因为神经元之间还没有形成强壮的脉络。当我们开始接触事物，神经元之间互相连接，将感官和反射器联系在一起，记忆力形成。但是形成的新连接怎么样变成记忆现在仍是科学界的一个谜。记忆力帮助我们再次接触这些事物的时候已经会判断好坏，知道怎么做。<br><strong>人工神经网络</strong>：人工神经网络之间所有神经元之间的连接都是固定的，也就是说没有凭空产生新连接这回事。人工神经网络通过正向和反向传播来更新神经元，从而形成一个更好的神经系统。<br><strong>两者比较</strong>：<strong>人工神经网络</strong>本质上是一个能让计算机处理和优化的数学模型。而<strong>生物神经网络</strong>是通过刺激产生新的连接，让信号能够通过新的连接传递和进行反馈。身体里的<strong>生物神经网络</strong>经过了数千万年的进化，是独一无二的，目前再复杂的<strong>人工神经网络</strong>也不能替换我们的大脑。</p>
+<h2 id="什么是神经网络？"><a href="#什么是神经网络？" class="headerlink" title="什么是神经网络？"></a>什么是神经网络？</h2><p>计算机神经网络是一种模仿生物神经网络（动物的中枢神经系统，特别是大脑）的结构和功能，它是一种数学模型或计算模型。神经网络由大量的人工神经元联结进行计算，大多数情况下人工神经网络能在外界信息的基础上改变内部结构，是一种自己逐渐适应的过程。现代神经网络是一种基于统计学的数据建模工具，常用来对输入和输出间复杂的关系进行建模，或者来探索数据间的模式。神经网络是一种运算模型，由大量的节点或者说神经元和之间的联系构成。正如人类神经系统当中的神经元一样，他们负责传递和加工信息，神经元也可以被训练或强化，形成固定的神经意识形态，对特殊的信息会有更强烈的反应。通过不断告知计算机哪些特征属于某个标签，计算机会用一个数学模型来概括这些学习到的判断力，最终以数学的形式，也就是0和1的组合形式判断它看到的应该被分为哪一类，所以说神经网络也是监督学习的一种。</p>
+<p><img src="http://www.tinaher.com/2018/03/16/机器学习概念浅谈/1.jpg" alt="1"></p>
+<p>如图，输入层是直接接受信息的神经层，负责传递收到的信息；输出层是信息在神经元链接中传递、中转、分析、权衡，形成输出结果。隐藏层是输入层和输出层之间众多神经元和链接组成的各个层面，隐藏层可以有多层，习惯上用一层，作用是负责对输入信息的加工处理。计算机中是对一堆0和1组合的数字加工处理，最终生成另外一堆数字，这堆数字也有了认知上的意义。</p>
+<blockquote>
+<p><strong>如何训练神经网络？</strong></p>
+</blockquote>
+<p><strong>1. 准备很多数据。如千万张有标签的猫猫狗狗的图片</strong></p>
+<p><strong>2. 上千万次的训练。只给计算机看图片数据，它会给我们不成熟也不准确的答案</strong></p>
+<p><strong>3. 从错误里面学习经验。对比预测答案和真实答案的差别，再把差别反方向传递过去，对每一个神经元，向正确的方向上改动一点点，即更新权重。</strong></p>
+<p>计算机里每一个神经元都会有属于他的激励函数（activation function），可以用这个函数给计算机一个刺激行为。比如当我们第一次给这个神经网络看一只飞奔的猫时，神经网络里只有部分的神经元被激励或者被激活，被激活的神经元传递下去的信息是计算机最重视的信息，也是对输出结果最有价值的信息。如果预测的结果是只狗，所有神经元参数就会被调整。一些容易被激活的神经元变得迟钝，另外一些却变得敏感起来，即减小之前被激活的神经元的weight，增大未被激活的神经元的weight。这样子改变神经元参数，使其对图片里真正重要的信息敏感。这时，被改进的参数就能渐渐预测出正确的答案，这是一只猫。</p>
+<h2 id="深度理解神经网络"><a href="#深度理解神经网络" class="headerlink" title="深度理解神经网络"></a>深度理解神经网络</h2><p><img src="http://www.tinaher.com/2018/03/16/机器学习概念浅谈/2.jpg" alt="1"></p>
+<p>如图，0-9整张数字图从输入层的2个神经元输入，经过隐藏层加工处理，神经网络最右端3个神经元用3个代表特征，用计算机理解的方式表示出了整张数字图的像素特征，即最右的三维向量图。计算机通过分析神经网络最后处理得出的图片像素3个代表特征，把图中每个数字根据它自身的像素特征赋予一个有意义的3维向量放置在三维空间里。有图可知，同一种数字由于像素相似，它们在3维空间里的位置也相对集中。</p>
+<p>用于测试的数字从输入层输入时，经过这几个神经元得到同样性质的像素代表特征，再根据特征得到自己的三维向量，若该三维向量在空间的位置属于正确的集群，则预测正确。反之，反向传播调整神经元的参数，通过吸取错误的经验教训，提高神经网络模型的表现。</p>
+<h2 id="神经网络中优化最佳权重的方法：梯度下降法（Optimization-Gradient-Descent-in-Neural-Nets）"><a href="#神经网络中优化最佳权重的方法：梯度下降法（Optimization-Gradient-Descent-in-Neural-Nets）" class="headerlink" title="神经网络中优化最佳权重的方法：梯度下降法（Optimization:Gradient Descent in Neural Nets）"></a>神经网络中优化最佳权重的方法：梯度下降法（Optimization:Gradient Descent in Neural Nets）</h2><p>神经网络是当今为止最流行的一种深度学习框架，他的基本原理也很简单，就是一种梯度下降机制。</p>
+
       
       
         <div class="page-reward">
@@ -298,13 +334,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/tinaher522.github.io/2018/03/06/逻辑回归和条件随机场/">逻辑回归和条件随机场</a></p>
+        <p><span>本文标题:</span><a href="/tinaher522.github.io/2018/03/16/机器学习概念浅谈/">机器学习概念浅谈</a></p>
         <p><span>文章作者:</span><a href="/tinaher522.github.io/" title="访问 xinghui he 的个人博客">xinghui he</a></p>
-        <p><span>发布时间:</span>2018年03月06日 - 17时37分</p>
-        <p><span>最后更新:</span>2018年03月10日 - 10时41分</p>
+        <p><span>发布时间:</span>2018年03月16日 - 20时21分</p>
+        <p><span>最后更新:</span>2018年03月17日 - 18时29分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/tinaher522.github.io/2018/03/06/逻辑回归和条件随机场/" title="逻辑回归和条件随机场">https://github.com/tinaher522/tinaher522.github.io/2018/03/06/逻辑回归和条件随机场/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://github.com/tinaher522/tinaher522.github.io/2018/03/06/逻辑回归和条件随机场/　　作者: xinghui he" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/tinaher522.github.io/2018/03/16/机器学习概念浅谈/" title="机器学习概念浅谈">https://github.com/tinaher522/tinaher522.github.io/2018/03/16/机器学习概念浅谈/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://github.com/tinaher522/tinaher522.github.io/2018/03/16/机器学习概念浅谈/　　作者: xinghui he" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/tinaher522.github.io/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -317,18 +353,9 @@
 
 <nav id="article-nav">
   
-    <a href="/tinaher522.github.io/2018/03/10/Black-Mirror/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Black Mirror
-        
-      </div>
-    </a>
   
-  
-    <a href="/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mac terminal command don&#39;t work</div>
+    <a href="/tinaher522.github.io/2018/03/10/Black-Mirror/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Black Mirror</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -339,7 +366,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#机器学习分类"><span class="toc-number">1.</span> <span class="toc-text">机器学习分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#监督学习-supervised-learning"><span class="toc-number">1.1.</span> <span class="toc-text">监督学习(supervised learning)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非监督学习（un-supervised-learning"><span class="toc-number">1.2.</span> <span class="toc-text">非监督学习（un-supervised learning)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#半监督学习（semi-supervised-learning"><span class="toc-number">1.3.</span> <span class="toc-text">半监督学习（semi-supervised learning)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#强化学习-reinforcement-learning"><span class="toc-number">1.4.</span> <span class="toc-text">强化学习(reinforcement learning)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遗传算法（genetic-algorithm）"><span class="toc-number">1.5.</span> <span class="toc-text">遗传算法（genetic algorithm）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#神经网络（Neural-Networks）"><span class="toc-number">2.</span> <span class="toc-text">神经网络（Neural Networks）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#人工神经网络-VS-生物神经网络"><span class="toc-number">2.1.</span> <span class="toc-text">人工神经网络 VS 生物神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是神经网络？"><span class="toc-number">2.2.</span> <span class="toc-text">什么是神经网络？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深度理解神经网络"><span class="toc-number">2.3.</span> <span class="toc-text">深度理解神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神经网络中优化最佳权重的方法：梯度下降法（Optimization-Gradient-Descent-in-Neural-Nets）"><span class="toc-number">2.4.</span> <span class="toc-text">神经网络中优化最佳权重的方法：梯度下降法（Optimization:Gradient Descent in Neural Nets）</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -405,13 +432,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/tinaher522.github.io/2018/03/10/Black-Mirror/" title="上一篇: Black Mirror">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/tinaher522.github.io/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/" title="下一篇: mac terminal command don&#39;t work">
+            <a href="/tinaher522.github.io/2018/03/10/Black-Mirror/" title="下一篇: Black Mirror">
                 <i class="fa fa-angle-right"></i>
             </a>
         

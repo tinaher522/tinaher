@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://github.com/tinaher522/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/index.html">
 <meta property="og:site_name" content="istar">
 <meta property="og:description" content="mac terminal 基本命令失效的修复手贱把系统更新到了macOS High sierra。今天准备装PyTorch的时候，在terminal输conda install指令，结果出来“-bash: conda :command not found”。想了想明明安装了anaconda，路径应该也在环境变量里面，为什么会找不到command呢。后来试着敲敲ls，“-bash: ls :comm">
-<meta property="og:updated_time" content="2018-03-10T10:41:42.704Z">
+<meta property="og:updated_time" content="2018-03-12T16:42:48.651Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac terminal command don&#39;t work">
 <meta name="twitter:description" content="mac terminal 基本命令失效的修复手贱把系统更新到了macOS High sierra。今天准备装PyTorch的时候，在terminal输conda install指令，结果出来“-bash: conda :command not found”。想了想明明安装了anaconda，路径应该也在环境变量里面，为什么会找不到command呢。后来试着敲敲ls，“-bash: ls :comm">
@@ -139,7 +139,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tinaher522.github.io/tags/British-science-fiction/" style="font-size: 10px;">British science fiction</a> <a href="/tinaher522.github.io/tags/Introduction/" style="font-size: 10px;">Introduction</a> <a href="/tinaher522.github.io/tags/command/" style="font-size: 10px;">command</a> <a href="/tinaher522.github.io/tags/lab/" style="font-size: 10px;">lab</a> <a href="/tinaher522.github.io/tags/lm/" style="font-size: 10px;">lm</a> <a href="/tinaher522.github.io/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tinaher522.github.io/tags/nlp/" style="font-size: 20px;">nlp</a> <a href="/tinaher522.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/tinaher522.github.io/tags/terminal/" style="font-size: 10px;">terminal</a>
+                        <a href="/tinaher522.github.io/tags/British-science-fiction/" style="font-size: 10px;">British science fiction</a> <a href="/tinaher522.github.io/tags/Introduction/" style="font-size: 10px;">Introduction</a> <a href="/tinaher522.github.io/tags/command/" style="font-size: 10px;">command</a> <a href="/tinaher522.github.io/tags/lab/" style="font-size: 10px;">lab</a> <a href="/tinaher522.github.io/tags/lm/" style="font-size: 10px;">lm</a> <a href="/tinaher522.github.io/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tinaher522.github.io/tags/ml/" style="font-size: 10px;">ml</a> <a href="/tinaher522.github.io/tags/nlp/" style="font-size: 20px;">nlp</a> <a href="/tinaher522.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/tinaher522.github.io/tags/terminal/" style="font-size: 10px;">terminal</a>
                     </div>
                 </section>
                 
@@ -255,7 +255,7 @@
 <p>下面记录修复：</p>
 <a id="more"></a>
 <blockquote>
-<p><strong>step1:</strong>在terminal中输入：<br>export PATH=”/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin”</p>
+<p><strong>step1:</strong>在terminal中输入：<br>export PATH=”/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin”<br>export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH</p>
 <p><strong>step2:</strong><br>“open -e ~/.bash_profile”打开.bash_profile文件</p>
 <p><strong>step3:</strong><br>添加这一行，修改坏境变量<br>export PATH=”/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin”<br>并保存</p>
 </blockquote>
@@ -317,7 +317,7 @@
         <p><span>本文标题:</span><a href="/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/">mac terminal command don&#39;t work</a></p>
         <p><span>文章作者:</span><a href="/tinaher522.github.io/" title="访问 xinghui he 的个人博客">xinghui he</a></p>
         <p><span>发布时间:</span>2018年02月26日 - 21时33分</p>
-        <p><span>最后更新:</span>2018年03月10日 - 10时41分</p>
+        <p><span>最后更新:</span>2018年03月12日 - 16时42分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/" title="mac terminal command don&#39;t work">https://github.com/tinaher522/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/</a>
             <span class="copy-path" data-clipboard-text="原文: https://github.com/tinaher522/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/　　作者: xinghui he" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -432,7 +432,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/03/10/Black-Mirror/">Black Mirror</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/03/06/逻辑回归和条件随机场/">逻辑回归和条件随机场</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/">mac terminal command don't work</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/19/language-modeling-basics/">language modeling basics</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/19/nlpLab-python/">nlpLab-python</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/08/Natural-Language-Processing-Introduction/">Natural Language Processing-Introduction</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/03/16/机器学习概念浅谈/">机器学习概念浅谈</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/03/10/Black-Mirror/">Black Mirror</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/03/06/逻辑回归和条件随机场/">逻辑回归和条件随机场</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/">mac terminal command don't work</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/19/language-modeling-basics/">language modeling basics</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/19/nlpLab-python/">nlpLab-python</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/08/Natural-Language-Processing-Introduction/">Natural Language Processing-Introduction</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
