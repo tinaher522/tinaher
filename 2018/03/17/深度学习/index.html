@@ -3,19 +3,19 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>language modeling basics | istar</title>
+  <title>深度学习 | istar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="语言模型在nlp中是用来预测词汇或句子的，是实现自然语言处理智能化不可缺少的一部分。想像一下，we were given a corpus, and then we need to estimate the parameters of a language model. But 科普一个小知识，Originally, 预测语言模型参数的技术是develop for语音识别的，直到现在还是play">
-<meta name="keywords" content="lm,nlp">
+  <meta name="description" content="学习深度学习过程中的学习笔记。 文字主要整理摘自 Morvan’s video 部分内容参考知乎：“深度学习”和“多层神经网络”的区别  深度学习（deep learning）是机器学习的分支，是一种试图使用包含复杂结构或由多重非线性变换构成的多个处理层对数据进行高层抽象的算法。”深度学习”是为了让层数较多的多层神经网络可以训练，能够work而演化出来的一系列的新的结构和方法。简单点来说它和多层">
+<meta name="keywords" content="ml,dl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="language modeling basics">
-<meta property="og:url" content="https://github.com/tinaher522/tinaher522.github.io/2018/02/19/language-modeling-basics/index.html">
+<meta property="og:title" content="深度学习">
+<meta property="og:url" content="https://github.com/tinaher522/tinaher522.github.io/2018/03/17/深度学习/index.html">
 <meta property="og:site_name" content="istar">
-<meta property="og:description" content="语言模型在nlp中是用来预测词汇或句子的，是实现自然语言处理智能化不可缺少的一部分。想像一下，we were given a corpus, and then we need to estimate the parameters of a language model. But 科普一个小知识，Originally, 预测语言模型参数的技术是develop for语音识别的，直到现在还是play">
-<meta property="og:updated_time" content="2018-03-13T19:33:43.551Z">
+<meta property="og:description" content="学习深度学习过程中的学习笔记。 文字主要整理摘自 Morvan’s video 部分内容参考知乎：“深度学习”和“多层神经网络”的区别  深度学习（deep learning）是机器学习的分支，是一种试图使用包含复杂结构或由多重非线性变换构成的多个处理层对数据进行高层抽象的算法。”深度学习”是为了让层数较多的多层神经网络可以训练，能够work而演化出来的一系列的新的结构和方法。简单点来说它和多层">
+<meta property="og:updated_time" content="2018-03-18T09:12:36.830Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="language modeling basics">
-<meta name="twitter:description" content="语言模型在nlp中是用来预测词汇或句子的，是实现自然语言处理智能化不可缺少的一部分。想像一下，we were given a corpus, and then we need to estimate the parameters of a language model. But 科普一个小知识，Originally, 预测语言模型参数的技术是develop for语音识别的，直到现在还是play">
+<meta name="twitter:title" content="深度学习">
+<meta name="twitter:description" content="学习深度学习过程中的学习笔记。 文字主要整理摘自 Morvan’s video 部分内容参考知乎：“深度学习”和“多层神经网络”的区别  深度学习（deep learning）是机器学习的分支，是一种试图使用包含复杂结构或由多重非线性变换构成的多个处理层对数据进行高层抽象的算法。”深度学习”是为了让层数较多的多层神经网络可以训练，能够work而演化出来的一系列的新的结构和方法。简单点来说它和多层">
   
     <link rel="alternative" href="/atom.xml" title="istar" type="application/atom+xml">
   
@@ -209,11 +209,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-language-modeling-basics" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-深度学习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/tinaher522.github.io/2018/02/19/language-modeling-basics/" class="article-date">
-      <time datetime="2018-02-19T17:05:06.000Z" itemprop="datePublished">2018-02-19</time>
+      <a href="/tinaher522.github.io/2018/03/17/深度学习/" class="article-date">
+      <time datetime="2018-03-17T20:59:17.000Z" itemprop="datePublished">2018-03-17</time>
 </a>
     </div>
   
@@ -226,7 +226,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      language modeling basics
+      深度学习
     </h1>
   
 
@@ -241,7 +241,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/lm/">lm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/nlp/">nlp</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/dl/">dl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tinaher522.github.io/tags/ml/">ml</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -252,47 +252,28 @@
       
           
         <blockquote>
-<p><strong>语言模型</strong>在nlp中是用来预测词汇或句子的，是实现自然语言处理智能化不可缺少的一部分。想像一下，we were given a corpus, and then we need to estimate the parameters of a language model. But 科普一个小知识，Originally, 预测语言模型参数的技术是develop for语音识别的，直到现在还是play a central role in speech recognition。nlp后面的像part of speech tagging, dependency parsing这样的问题，还是会用到语言模型。</p>
+<p>学习深度学习过程中的学习笔记。</p>
+<p>文字主要整理摘自 <a href="https://www.youtube.com/playlist?list=PLXO45tsB95cJ0U2DKySDmhRqQI9IaGxck" target="_blank" rel="noopener">Morvan’s video</a></p>
+<p>部分内容参考<a href="https://www.zhihu.com/question/26017374" target="_blank" rel="noopener">知乎：“深度学习”和“多层神经网络”的区别</a></p>
 </blockquote>
-<a id="more"></a>
-<p>首先语言模型是什么？p(S)就是一个语言模型，用来计算一个句子的概率的模型。而这个模型是我们提取了语料库中的各类特征，从而训练得到的模型。</p>
-<p>Assigning probabilities to sequences 在很多应用中都是很必要的，比如在speech recognition, handwriting recognition这样的应用里，我们要从noisy，ambiguous input 环境中去 identify words。举个例子，比如说在抢劫的电影场景里，劫匪写了一张纸条，“i have a gub”。如果用language processing system 去读它，很可能就会输出“I have a gun”。很显然后者才是更合理的句子，因为gub这个单词根本就不存在，而且在抢劫的场景，gun 比其他相似的单词，如gull更合理些。 概率分布下的语言模型让自然语言处理智能化，就像是一个knowledge-based的人去处理单词句子。</p>
-<p>不过以上都是个人的一些理解，不够说服力。那么怎么更具说服力地定义一下语言模型呢？这里引用一下Columbia University的Michael Collins教授在nlp课程里的course notes<a href="http://www.cs.columbia.edu/~mcollins/lm-spring2013.pdf" target="_blank" rel="noopener">1</a>.</p>
-<h2 id="如何定义语言模型？"><a href="#如何定义语言模型？" class="headerlink" title="如何定义语言模型？"></a>如何定义语言模型？</h2><pre><code> 1. 基于某一种语言，先定义一个 V，它是一个由语料库里所有单词组成的一个set.（每个单词仅出现一次）
-</code></pre><p> 假设说当我们给英语建一个语言模型的时候，这个 V 可能是这样：</p>
-<p>   V = {the, dog, laughs, saw, barks, cat, . . .}  </p>
-<p>   实际上 V 可能非常的大，可能有成千上万的单词，但是它被认为是一个有限的集合（finite set）。</p>
-<pre><code> 2. 然后是用V里的单词组成一个句子.  
-</code></pre><p>   A sentence in the language is a sequence of words, like</p>
-<script type="math/tex; mode=display">x_1x_2 . . . x_n</script><p>   这里的n是≥1的整数，并且<script type="math/tex">x_1，x_2 ，. . . ，x_n-1</script>都属于集合V。但是<script type="math/tex">x_n</script>不属于集合V，它是一个特殊符号STOP，表示句子的结束。这时候，example sentences可能如下：</p>
-<p> the dog barks STOP<br> the cat laughs STOP<br> the cat saw the dog STOP<br> the STOP<br> cat the dog the STOP<br> cat cat cat STOP<br> STOP<br> . . .</p>
-<p>这里的所有句子都是由V里面的单词无序组成，我们把这些句子的集合定义为<script type="math/tex">V†</script>. 而这个集合和之前的集合V是完全不同，<script type="math/tex">V†</script>是一个无限集合，因为句子的长度是不一样的，并且句中单词是无序且可重复的。</p>
-<pre><code> 3. 最后，正式定义语言模型：一个语言模型由两个重要因素组成，一个是有限的集合V，另一个是方程$$p(x_1, x_2, . . . x_n)$$.
-</code></pre><p>这里对于方程<script type="math/tex">p(x_1, x_2, . . . x_n)</script> **有两个限制条件：</p>
-<ul>
-<li><p><strong>对于任意属于集合<script type="math/tex">V†</script>的句子，<script type="math/tex">p(x_1, x_2, . . . x_n)≥ 0</script></strong><br>For any {<script type="math/tex">x_1 . . . x_n ∈ V†</script>}, <script type="math/tex">p(x_1, x_2, . . . x_n) ≥ 0</script>.</p>
-</li>
-<li><p><strong>所有属于集合<script type="math/tex">V†</script>的句子，句子概率和=1</strong></p>
-</li>
-</ul>
-<script type="math/tex; mode=display">\sum\limits_{x_1 . . . x_n ∈ V†} p(x_1, x_2, . . . x_n)=1</script><p>Hence <script type="math/tex">p(x_1, x_2, . . . x_n)</script> is a probability distribution over the sentences in <script type="math/tex">V†</script>.</p>
-<h2 id="如何从训练语料库中学习一个语言模型？"><a href="#如何从训练语料库中学习一个语言模型？" class="headerlink" title="如何从训练语料库中学习一个语言模型？"></a>如何从训练语料库中学习一个语言模型？</h2><p>我们知道<script type="math/tex">p(x_1, x_2, . . . x_n)</script>就是一个语言模型，但是<script type="math/tex">p(x_1, x_2, . . . x_n)</script>=？</p>
-<p>有不同的方法来计算<script type="math/tex">p(x_1, x_2, . . . x_n)</script>，所以后面的“？”会因为计算方法不同而不同。也就是说同一个语料库，会因为训练的方法不同产生不同的解，从而得到不一样的语言模型。</p>
-<p>举例来说，有个非常烂的语言模型是：</p>
-<script type="math/tex; mode=display">p(x_1 . . . x_n)=\frac{c(x_1. . . x_n)}{N}</script><p>这里N表示训练语料库中句子的数量，而<script type="math/tex">c(x_1. . . x_n)</script>表示句子<script type="math/tex">x_1. . . x_n</script>出现的次数。因为<script type="math/tex">x_1. . . x_n</script>中的<script type="math/tex">x_i</script>是无序可重复的，所以很有可能句子<script type="math/tex">x_1. . . x_n</script>根本没有在训练集（这里的集合不是V也不是<script type="math/tex">V†</script>，是语料库中句子的集合）中出现过。因此在很多情况下<script type="math/tex">p(x_1, x_2, . . . x_n)</script>的结果都为0，这对构建语言模型去做预测词语或句子的应用没有什么意义。所以说这种方法，是很糟糕的方法。</p>
-<p>有什么好方法去构建语言模型吗？</p>
-<h3 id="Markov-Models"><a href="#Markov-Models" class="headerlink" title="Markov Models"></a>Markov Models</h3><p>Markov Models是概率论的核心思想。</p>
-<blockquote>
-<p>语言模型和马尔可夫模型，条件随机场等模型是什么关系呢？</p>
-<p>马尔可夫模型，条件随机场等模型都是构建语言模型的好方法。</p>
+<p>深度学习（deep learning）是机器学习的分支，是一种试图使用包含复杂结构或由多重非线性变换构成的多个处理层对数据进行高层抽象的算法。”深度学习”是为了让层数较多的多层神经网络可以训练，能够work而演化出来的一系列的新的结构和方法。简单点来说它和多层神经网络步骤区别在于是否需要人工提取特征：多层神经网络是特征映射-&gt;值，特征是人工挑选。深度学习是信号-&gt;特征-&gt;值，特征是网络自己选择。<br>本文会主要介绍深度学习中相关结构如CNN,RNN。<br><a id="more"></a></p>
+<h2 id="深度学习解决多层神经网络带来的限制"><a href="#深度学习解决多层神经网络带来的限制" class="headerlink" title="深度学习解决多层神经网络带来的限制"></a>深度学习解决多层神经网络带来的限制</h2><pre><code> 多层神经网络主要有三大限制
+</code></pre><blockquote>
+<ol>
+<li>面对大数据时，需要人为提取原始数据的特征作为输入。这时候必须忽略不相关的变量，同时保留有用的信息，这个尺度又是很难掌握的。</li>
+<li>想要更精确的近似复杂的函数，必须增加隐藏层的层数，这就产生了梯度扩散问题。</li>
+<li>无法处理时间序列数据（比如音频），因为多层神经网络不含时间参数。</li>
+</ol>
 </blockquote>
-<p>首先语言模型是什么？p(S)就是一个语言模型，用来计算一个句子概率的模型。由chain rule可知，<br><span>$$\begin{align}
-P(\mathbf{x}) &amp;= P(x_1,...,x_N) \\
-&amp;= P(x_1)P(x_2...x_N|x_1)\\
-&amp;= P(x_1)P(x_2|x_1) ... P(x_N|x_1,...,x_{N-1})\\
-&amp;= \prod_{n=1}^N P(x_n|x_1,... x_{n-1}) \quad \text{(chain rule)}\\
-\end{align}$$</span><!-- Has MathJax --></p>
-
+<pre><code> 深度模型如何解决以上三个限制？
+</code></pre><blockquote>
+<ol>
+<li>深度学习自动选择原始数据的特征。（如常用于图像识别的卷积神经网络CNN，网络第一层表征物体的位置、边缘、亮度等初级视觉信息。第二层将边缘整合表征物体的轮廓，之后的层会表征更加抽象的信息。所有特征自动呈现，从具象到抽象的层级式表征跟大脑的工作原理吻合。）</li>
+<li>深度网络的学习算法。一种方法是改变网络的组织结构，比如用卷积神经网络代替全连接（full connectivity）网络，训练算法仍依据Backpropagating gradients的基本原理。另一种则是彻底改变训练算法，可尝试的算法有Hessian-free optimization[3]，recursive least-squares(RLS) 等。</li>
+<li>使用带反馈和时间参数的Recurrent neural network 处理时间序列数据。从某种意义上讲，Recurrent neural network可以在时间维度上展开成深度网络，可以有效处理音频信息（语音识别和自然语言处理等），或者用来模拟动力系统。</li>
+</ol>
+</blockquote>
+<h1 id=""><a href="#" class="headerlink" title="#"></a>#</h1>
       
       
         <div class="page-reward">
@@ -347,13 +328,13 @@ P(\mathbf{x}) &amp;= P(x_1,...,x_N) \\
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/tinaher522.github.io/2018/02/19/language-modeling-basics/">language modeling basics</a></p>
+        <p><span>本文标题:</span><a href="/tinaher522.github.io/2018/03/17/深度学习/">深度学习</a></p>
         <p><span>文章作者:</span><a href="/tinaher522.github.io/" title="访问 xinghui he 的个人博客">xinghui he</a></p>
-        <p><span>发布时间:</span>2018年02月19日 - 17时05分</p>
-        <p><span>最后更新:</span>2018年03月13日 - 19时33分</p>
+        <p><span>发布时间:</span>2018年03月17日 - 20时59分</p>
+        <p><span>最后更新:</span>2018年03月18日 - 09时12分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/tinaher522.github.io/2018/02/19/language-modeling-basics/" title="language modeling basics">https://github.com/tinaher522/tinaher522.github.io/2018/02/19/language-modeling-basics/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://github.com/tinaher522/tinaher522.github.io/2018/02/19/language-modeling-basics/　　作者: xinghui he" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/tinaher522.github.io/2018/03/17/深度学习/" title="深度学习">https://github.com/tinaher522/tinaher522.github.io/2018/03/17/深度学习/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://github.com/tinaher522/tinaher522.github.io/2018/03/17/深度学习/　　作者: xinghui he" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/tinaher522.github.io/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -366,18 +347,9 @@ P(\mathbf{x}) &amp;= P(x_1,...,x_N) \\
 
 <nav id="article-nav">
   
-    <a href="/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          mac terminal command don&#39;t work
-        
-      </div>
-    </a>
   
-  
-    <a href="/tinaher522.github.io/2018/02/19/nlpLab-python/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">nlpLab-python</div>
+    <a href="/tinaher522.github.io/2018/03/16/机器学习概念浅谈/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">机器学习概念浅谈</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -388,7 +360,7 @@ P(\mathbf{x}) &amp;= P(x_1,...,x_N) \\
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何定义语言模型？"><span class="toc-number">1.</span> <span class="toc-text">如何定义语言模型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何从训练语料库中学习一个语言模型？"><span class="toc-number">2.</span> <span class="toc-text">如何从训练语料库中学习一个语言模型？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Markov-Models"><span class="toc-number">2.1.</span> <span class="toc-text">Markov Models</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#深度学习解决多层神经网络带来的限制"><span class="toc-number">1.</span> <span class="toc-text">深度学习解决多层神经网络带来的限制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number"></span> <span class="toc-text">#</span></a>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -454,13 +426,11 @@ P(\mathbf{x}) &amp;= P(x_1,...,x_N) \\
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/" title="上一篇: mac terminal command don&#39;t work">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/tinaher522.github.io/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/tinaher522.github.io/2018/02/19/nlpLab-python/" title="下一篇: nlpLab-python">
+            <a href="/tinaher522.github.io/2018/03/16/机器学习概念浅谈/" title="下一篇: 机器学习概念浅谈">
                 <i class="fa fa-angle-right"></i>
             </a>
         
