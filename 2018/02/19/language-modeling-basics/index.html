@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://github.com/tinaher522/tinaher522.github.io/2018/02/19/language-modeling-basics/index.html">
 <meta property="og:site_name" content="istar">
 <meta property="og:description" content="语言模型在nlp中是用来预测词汇或句子的，是实现自然语言处理智能化不可缺少的一部分。想像一下，we were given a corpus, and then we need to estimate the parameters of a language model. But 科普一个小知识，Originally, 预测语言模型参数的技术是develop for语音识别的，直到现在还是play">
-<meta property="og:updated_time" content="2018-03-13T19:33:43.551Z">
+<meta property="og:updated_time" content="2018-03-24T11:49:17.955Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="language modeling basics">
 <meta name="twitter:description" content="语言模型在nlp中是用来预测词汇或句子的，是实现自然语言处理智能化不可缺少的一部分。想像一下，we were given a corpus, and then we need to estimate the parameters of a language model. But 科普一个小知识，Originally, 预测语言模型参数的技术是develop for语音识别的，直到现在还是play">
@@ -139,7 +139,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tinaher522.github.io/tags/British-science-fiction/" style="font-size: 10px;">British science fiction</a> <a href="/tinaher522.github.io/tags/Introduction/" style="font-size: 10px;">Introduction</a> <a href="/tinaher522.github.io/tags/command/" style="font-size: 10px;">command</a> <a href="/tinaher522.github.io/tags/dl/" style="font-size: 10px;">dl</a> <a href="/tinaher522.github.io/tags/lab/" style="font-size: 10px;">lab</a> <a href="/tinaher522.github.io/tags/lm/" style="font-size: 10px;">lm</a> <a href="/tinaher522.github.io/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tinaher522.github.io/tags/ml/" style="font-size: 15px;">ml</a> <a href="/tinaher522.github.io/tags/nlp/" style="font-size: 20px;">nlp</a> <a href="/tinaher522.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/tinaher522.github.io/tags/terminal/" style="font-size: 10px;">terminal</a>
+                        <a href="/tinaher522.github.io/tags/British-science-fiction/" style="font-size: 10px;">British science fiction</a> <a href="/tinaher522.github.io/tags/Introduction/" style="font-size: 10px;">Introduction</a> <a href="/tinaher522.github.io/tags/command/" style="font-size: 10px;">command</a> <a href="/tinaher522.github.io/tags/dl/" style="font-size: 10px;">dl</a> <a href="/tinaher522.github.io/tags/lab/" style="font-size: 10px;">lab</a> <a href="/tinaher522.github.io/tags/lm/" style="font-size: 10px;">lm</a> <a href="/tinaher522.github.io/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tinaher522.github.io/tags/ml/" style="font-size: 15px;">ml</a> <a href="/tinaher522.github.io/tags/nlp/" style="font-size: 20px;">nlp</a> <a href="/tinaher522.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/tinaher522.github.io/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tinaher522.github.io/tags/感悟/" style="font-size: 10px;">感悟</a>
                     </div>
                 </section>
                 
@@ -213,7 +213,7 @@
   
     <div class="article-meta">
       <a href="/tinaher522.github.io/2018/02/19/language-modeling-basics/" class="article-date">
-      <time datetime="2018-02-19T17:05:06.000Z" itemprop="datePublished">2018-02-19</time>
+      <time datetime="2018-02-19T09:05:06.000Z" itemprop="datePublished">2018-02-19</time>
 </a>
     </div>
   
@@ -280,9 +280,12 @@
 <p>有不同的方法来计算<script type="math/tex">p(x_1, x_2, . . . x_n)</script>，所以后面的“？”会因为计算方法不同而不同。也就是说同一个语料库，会因为训练的方法不同产生不同的解，从而得到不一样的语言模型。</p>
 <p>举例来说，有个非常烂的语言模型是：</p>
 <script type="math/tex; mode=display">p(x_1 . . . x_n)=\frac{c(x_1. . . x_n)}{N}</script><p>这里N表示训练语料库中句子的数量，而<script type="math/tex">c(x_1. . . x_n)</script>表示句子<script type="math/tex">x_1. . . x_n</script>出现的次数。因为<script type="math/tex">x_1. . . x_n</script>中的<script type="math/tex">x_i</script>是无序可重复的，所以很有可能句子<script type="math/tex">x_1. . . x_n</script>根本没有在训练集（这里的集合不是V也不是<script type="math/tex">V†</script>，是语料库中句子的集合）中出现过。因此在很多情况下<script type="math/tex">p(x_1, x_2, . . . x_n)</script>的结果都为0，这对构建语言模型去做预测词语或句子的应用没有什么意义。所以说这种方法，是很糟糕的方法。</p>
-<p>有什么好方法去构建语言模型吗？</p>
-<h3 id="Markov-Models"><a href="#Markov-Models" class="headerlink" title="Markov Models"></a>Markov Models</h3><p>Markov Models是概率论的核心思想。</p>
+<p>有什么好方法去构建语言模型吗？<br>N-gram,不管是预测下个单词出现的概率还是整个sequences的概率，N-gram model都是语音和语言处理上的一个非常重要的工具。</p>
+<h3 id="Markov-Models"><a href="#Markov-Models" class="headerlink" title="Markov Models"></a>Markov Models</h3><p>Markov Models是概率论的核心思想。<br>而 N-gram正是基于Markov assumption的思想。The assumption that the probability of a word depends only on the previous word is called a Markov assumption。<br>bigram是 first order Markov, tri-gram是 second order Markov,以此类推。</p>
+<p>k-th order Markov assumption:</p>
+<script type="math/tex; mode=display">P(x_n|x_{n-1},..., x_1) \approx P(x_n|x_{n-1},..., x_{n-k})</script><p>通常情况下bigram和trigram使用比较多，有时也会用4-gram甚至5-gram，但那仅限于有充足training data的时候。</p>
 <blockquote>
+<p>关于log probabilities, We always represent and compute language model probabilities in log format<br>as log probabilities. 因为所有的概率都是0-1之间，当多个概率相乘的时候，这个积会变的非常小，很有可能导致 numerical underflow。因此我们把log probabilities相乘来求整个句子的log概率，最后再一步转回来。<br>p1 × p2 × p3 × p4 = exp(log p1 +log p2 +log p3 +log p4) </p>
 <p>语言模型和马尔可夫模型，条件随机场等模型是什么关系呢？</p>
 <p>马尔可夫模型，条件随机场等模型都是构建语言模型的好方法。</p>
 </blockquote>
@@ -350,7 +353,7 @@ P(\mathbf{x}) &amp;= P(x_1,...,x_N) \\
         <p><span>本文标题:</span><a href="/tinaher522.github.io/2018/02/19/language-modeling-basics/">language modeling basics</a></p>
         <p><span>文章作者:</span><a href="/tinaher522.github.io/" title="访问 xinghui he 的个人博客">xinghui he</a></p>
         <p><span>发布时间:</span>2018年02月19日 - 17时05分</p>
-        <p><span>最后更新:</span>2018年03月13日 - 19时33分</p>
+        <p><span>最后更新:</span>2018年03月24日 - 19时49分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/tinaher522.github.io/2018/02/19/language-modeling-basics/" title="language modeling basics">https://github.com/tinaher522/tinaher522.github.io/2018/02/19/language-modeling-basics/</a>
             <span class="copy-path" data-clipboard-text="原文: https://github.com/tinaher522/tinaher522.github.io/2018/02/19/language-modeling-basics/　　作者: xinghui he" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -465,7 +468,7 @@ P(\mathbf{x}) &amp;= P(x_1,...,x_N) \\
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/03/17/深度学习/">深度学习</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/03/16/机器学习概念浅谈/">机器学习概念浅谈</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/03/10/Black-Mirror/">Black Mirror</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/03/06/逻辑回归和条件随机场/">逻辑回归和条件随机场</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/">mac terminal command don't work</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/19/language-modeling-basics/">language modeling basics</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/19/nlpLab-python/">nlpLab-python</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/08/Natural-Language-Processing-Introduction/">Natural Language Processing-Introduction</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/11/28/但行前路，无问西东/">但行前路，无问西东</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/03/17/深度学习/">深度学习</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/03/16/机器学习概念浅谈/">机器学习概念浅谈</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/03/10/Black-Mirror/">Black Mirror</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/03/06/逻辑回归和条件随机场/">逻辑回归和条件随机场</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/26/mac-terminal-command-don-t-work/">mac terminal command don't work</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/19/language-modeling-basics/">language modeling basics</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/19/nlpLab-python/">nlpLab-python</a></li><li class="post-list-item"><a class="post-list-link" href="/tinaher522.github.io/2018/02/08/Natural-Language-Processing-Introduction/">Natural Language Processing-Introduction</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
